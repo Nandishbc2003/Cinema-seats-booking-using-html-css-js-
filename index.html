@@ -1,0 +1,321 @@
+<!DOCTYPE html> 
+ <html lang="en"> 
+  
+ <head> 
+     <meta charset="UTF-8" /> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+     <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
+     <link rel="stylesheet" href="style.css" /> 
+     <title>Movie Seat Booking</title> 
+ </head> 
+  
+ <body> 
+     <div class="movie-container"> 
+         <label>Pick a movie:</label> 
+         <select id="movie"> 
+             <option value="10">The Tree Of Life ($10)</option> 
+             <option value="12">The Fountain ($12)</option> 
+             <option value="8">Prisoners ($8)</option> 
+             <option value="9">Enemy($9)</option> 
+         </select> 
+     </div> 
+  
+     <ul class="showcase"> 
+         <li> 
+             <div class="seat"></div> 
+             <small>Available</small> 
+         </li> 
+         <li> 
+             <div class="seat selected"></div> 
+             <small>Selected</small> 
+         </li> 
+         <li> 
+             <div class="seat occupied"></div> 
+             <small>Occupied</small> 
+         </li> 
+     </ul> 
+  
+     <div class="container"> 
+         <div class="screen"></div> 
+  
+         <div class="row"> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+         </div> 
+         <div class="row"> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+         </div> 
+         <div class="row"> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat occupied"></div> 
+         </div> 
+         <div class="row"> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+         </div> 
+         <div class="row"> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+         </div> 
+         <div class="row"> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat occupied"></div> 
+             <div class="seat"></div> 
+         </div> 
+     </div> 
+  
+     <p class="text"> 
+         You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span> 
+     </p> 
+  
+     <script src="script.js"></script> 
+ </body> 
+  
+ </html><style type="text/css">@import url("https://fonts.googleapis.com/css2?family=B612&display=swap"); 
+ 
+ * { 
+ font-family: "B612", sans-serif; 
+ box-sizing: border-box; 
+ } 
+ 
+ body { 
+ background-color: #091111; 
+ display: flex; 
+ flex-direction: column; 
+ color: rgb(243, 240, 235); 
+ align-items: center; 
+ height: 100vh; 
+ justify-content: center; 
+ margin: 0; 
+ } 
+ 
+ .movie-container { 
+ margin: 20px 0; 
+ } 
+ 
+ .movie-container select { 
+ background-color: #fff; 
+ border: 0; 
+ border-radius: 5px; 
+ font-size: 14px; 
+ margin-left: 10px; 
+ padding: 5px 15px 5px 15px; 
+ -moz-appearance: none; 
+ -webkit-appearance: none; 
+ appearance: none; 
+ } 
+ 
+ .seat { 
+ background-color: #444451; 
+ height: 12px; 
+ width: 15px; 
+ margin: 3px; 
+ border-top-left-radius: 10px; 
+ border-top-right-radius: 10px; 
+ } 
+ 
+ .seat.selected { 
+ background-color: #6feaf6; 
+ } 
+ .row { 
+ display: flex; 
+ } 
+ 
+ .seat.occupied { 
+ background-color: whitesmoke; 
+ } 
+ 
+ .seat:nth-of-type(2) { 
+ margin-right: 18px; 
+ } 
+ 
+ .seat:nth-last-of-type(2) { 
+ margin-left: 18px; 
+ } 
+ 
+ .seat:not(.occupied):hover { 
+ cursor: pointer; 
+ transform: scale(1.2); 
+ } 
+ 
+ .showcase .seat:not(.occupied):hover { 
+ cursor: default; 
+ transform: scale(1); 
+ } 
+ 
+ .showcase { 
+ padding: 5px 10px; 
+ border-radius: 5px; 
+ color: #777; 
+ list-style-type: none; 
+ display: flex; 
+ justify-content: space-between; 
+ background-color: rgba(24, 18, 18, 0.1); 
+ } 
+ 
+ .showcase li { 
+ display: flex; 
+ align-items: center; 
+ justify-content: center; 
+ margin: 0 10px; 
+ } 
+ 
+ .showcase li small { 
+ margin-left: 2px; 
+ } 
+ 
+ .screen { 
+ background-color: white; 
+ height: 70px; 
+ width: 100%; 
+ margin: 15px 0px; 
+ transform: rotateX(-45deg); 
+ box-shadow: 0 3px 50px rgba(230, 225, 225, 0.5); 
+ } 
+ 
+ .container { 
+ perspective: 1000px; 
+ margin-bottom: 30px; 
+ } 
+ 
+ p.text span { 
+ color: #6feaf6; 
+ } 
+ 
+ p.text { 
+ margin: 5px 0; 
+ }</style><script type="text/javascript">const container = document.querySelector('.container') 
+ 
+ const seats = document.querySelectorAll('.row .seat:not(.occupied) ') 
+ 
+ const count = document.getElementById('count') 
+ 
+ const total = document.getElementById('total') 
+ 
+ const movieSelect = document.getElementById('movie') 
+ 
+ 
+ populateUI() 
+ let ticketPrice = +movieSelect.value; 
+ 
+ //save selected movie index & price 
+ 
+ function setMovieData(movieIndex, moviePrice){ 
+ localStorage.setItem(' selectedMovieIndex' , movieIndex) 
+ localStorage.setItem(' selectedMoviePrice' , moviePrice) 
+ } 
+ 
+ //updating total and count 
+ function updateSelectedCount(){ 
+ const selectedSeats = document.querySelectorAll('.row .seat.selected') 
+ 
+ 
+ 
+ 
+ 
+ //copy selected seats into array 
+ //map thru array 
+ //return a new array index 
+ 
+ 
+ const seatsIndex = [...selectedSeats].map( function(seat){ 
+ 
+ return [...seats].indexOf(seat) 
+ 
+ }) 
+ 
+ 
+ localStorage.setItem('selectedSeats' , JSON.stringify(seatsIndex)) 
+ 
+ const selectedSeatsCount = selectedSeats.length 
+ 
+ count.innerText = selectedSeatsCount 
+ total.innerText = selectedSeatsCount * ticketPrice 
+ 
+ 
+ 
+ 
+ } 
+ 
+ 
+ // get data from local storage and populate UI 
+ function populateUI(){ 
+ 
+ const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) 
+ 
+ if(selectedSeats!== null && selectedSeats.length >0){ 
+ seats.forEach((seat, index)=>{ 
+ if(selectedSeats.indexOf(index)>-1) 
+ seat.classList.add('selected') 
+ 
+ }) 
+ } 
+ 
+ 
+ const selectedMovieIndex = localStorage.getItem('selectedMovieIndex') 
+ 
+ if(selectedMovieIndex !==null) 
+ movieSelect.selected = selectedMovieIndex 
+ 
+ } 
+ 
+ //movie select event 
+ 
+ movieSelect.addEventListener('change', e=>{ 
+ ticketPrice = +e.target.value 
+ updateSelectedCount() 
+ }) 
+ 
+ //seat click event 
+ container.addEventListener('click',(e) =>{ 
+ if 
+ (e.target.classList.contains('seat') &&  
+ !e.target.classList.contains('occupied')) 
+ { 
+ e.target.classList.toggle('selected') 
+ 
+ 
+ 
+ updateSelectedCount() 
+ } 
+ }) 
+ 
+ 
+ //initial count & total set 
+ updateSelectedCount()</script>
